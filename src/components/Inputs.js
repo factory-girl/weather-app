@@ -12,7 +12,6 @@ class Inputs extends React.Component{
                     <button>See forecast</button>
                 </div>
             </form>
-
         )
     }
 }

@@ -9,7 +9,6 @@ class Weather extends React.Component{
         const days = this.props.days;
 
         return(
-
             <div>
                 <ul>
                     { this.props.days.day1.temp && Object.values(days).map((day, index) => {
