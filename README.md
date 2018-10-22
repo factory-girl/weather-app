@@ -52,4 +52,5 @@ By default, the generated project supports all modern browsers.<br>
 Support for Internet Explorer 9, 10, and 11 requires [polyfills](https://github.com/facebook/create-react-app/blob/master/packages/react-app-polyfill/README.md).
 
 ## About the App
-This app was created for a technical challenge, and so it has minimal UI. It takes two inputs, a city and a country code, and returns a 5 day forecast for the given city. Graphics were made by me and are free to use.
+This app was created for a technical challenge, and so it has minimal UI. It takes two inputs, a city and a country code, and returns a 5 day forecast for the given city. Graphics were made by me and are free to use. The technical challenge was loose in its requirements so I was able to get creative with the solution. I decided to use create-react-app to bootstrap the app because it provides boilerplates for every possible part of development, from the README to testing. I use it in all my projects and will continue to do so in the future. When developing, I decided to go with input fields to give the user control over where 
+which city's forecast is shown. If I had more time to put into it, I might have made it grab the user's location and show a local forecast automatically without any input being needed. With more time, I might also put more detail into the UI and graphics.
