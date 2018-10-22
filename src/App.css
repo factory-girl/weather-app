@@ -1,0 +1,45 @@
+/*
+  Basic
+ */
+body, html {
+  height: 100%;
+  margin: 0;
+  background-image: linear-gradient(#4569C4, #0D38A4);
+  color: white;
+}
+
+div {
+  margin: 2em;
+}
+
+ul {
+  width: 25em;
+}
+
+h1 {
+  font: bold 2em Helvetica, Georgia, sans-serif;
+}
+
+input[type=text] {
+  border: none;
+}
+
+li img {
+  float: left;
+  width: 2em;
+  height: 2em;
+  margin: 0 2em 0 0;
+}
+
+li p {
+  font: 200 1em Georgia, Helvetica, serif;
+}
+
+li {
+  padding: 10px;
+  overflow: auto;
+}
+
+
+
+
