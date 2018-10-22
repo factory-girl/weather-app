@@ -2,7 +2,7 @@ import React from 'react';
 import Weather from './components/Weather';
 import Inputs from './components/Inputs';
 import Heading from './components/Heading';
-import './App.css';
+import './styling/App.css';
 
 class App extends React.Component {
     constructor(props) {
