@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Weather from './components/Weather';
 import Inputs from './components/Inputs';
 import Heading from './components/Heading';
 import './App.css';
 
-class App extends Component {
+class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = { city: '',
