@@ -7,7 +7,8 @@ class Heading extends React.Component {
         return(
             <div>
                 <h1>5 Day Forecast {
-                    this.props.city && this.props.countryCode && `for ${this.props.city}, ${this.props.countryCode}`
+                    this.props.city && this.props.countryCode && `for ${this.props.city},
+                    ${this.props.countryCode}`
                 }
                 </h1>
                 { this.props.city === '' && this.props.countryCode === '' &&

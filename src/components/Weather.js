@@ -1,7 +1,5 @@
 import React from "react";
-import rain from "../styling/images/rain.svg";
-import clouds from "../styling/images/clouds.svg";
-import clear from "../styling/images/clear.svg";
+const images = require.context('../styling/images', true);
 
 class Weather extends React.Component{
 
@@ -11,24 +9,12 @@ class Weather extends React.Component{
         return(
             <div>
                 <ul>
-                    { this.props.days.day1.temp && Object.values(days).map((day, index) => {
-                        if (day.text.includes("rain")) {
+                    { this.props.days.day0.temp && Object.values(days).map((day, index) => {
+                        let img_src = images(`./${day.text}.svg`);
                             return <li key={ index }>
-                                <img src={rain} alt="rain"/>
-                                {day.date}, {day.temp}°C, {day.text}
-                            </li>;
-                        } else if (day.text.includes("clear")) {
-                            return <li key={ index }>
-                                <img src={clear} alt="clear"/>
-                                {day.date}, {day.temp}°C, {day.text}
-                            </li>;
-                        } else {
-                            return <li key={ index }>
-                                <img src={clouds} alt="clouds"/>
-                                {day.date}, {day.temp}°C, {day.text}
-                            </li>;
-                        }
-
+                                        <img src={img_src} alt="clear"/>
+                                        {day.date}, {day.temp}°C, {day.text}
+                                    </li>;
                     })
                     }
                 </ul>

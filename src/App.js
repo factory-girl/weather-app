@@ -7,37 +7,38 @@ import './styling/App.css';
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { city: '',
+        this.state = {
+            city: '',
             countryCode: '',
             error: '',
             days: {
-                day1:  {
+                day0: {
                     temp: '',
                     text: '',
                     date: ''
                 },
-                day2:  {
+                day1: {
                     temp: '',
                     text: '',
                     date: ''
                 },
-                day3:  {
+                day2: {
                     temp: '',
                     text: '',
                     date: ''
                 },
-                day4:  {
+                day3: {
                     temp: '',
                     text: '',
                     date: ''
                 },
-                day5:  {
+                day4: {
                     temp: '',
                     text: '',
                     date: ''
                 }
             }
-        };
+        }
     }
 
     getWeather = async (e) => {
@@ -45,36 +46,37 @@ class App extends React.Component {
         const city = e.target.elements.city.value;
         const countryCode = e.target.elements.countryCode.value;
 
-        getData(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${countryCode}&APPID=4e3e0ad761bcd972a15d1e7379347bf1`)
+        getData(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${countryCode}
+        &units=metric&APPID=4e3e0ad761bcd972a15d1e7379347bf1`)
             .then(response => {
                 response = JSON.parse(response);
                     this.setState({
                         city: response.city.name,
                         countryCode: response.city.country,
                         days: {
-                            day1:  {
-                                temp: Math.floor(response.list[0].main.temp - 273.15),
-                                text: response.list[0].weather[0].description,
+                            day0:  {
+                                temp: Math.floor(response.list[0].main.temp),
+                                text: response.list[0].weather[0].main,
                                 date: response.list[0].dt_txt
                             },
-                            day2:  {
-                                temp: Math.floor(response.list[8].main.temp - 273.15),
-                                text: response.list[8].weather[0].description,
+                            day1:  {
+                                temp: Math.floor(response.list[8].main.temp),
+                                text: response.list[8].weather[0].main,
                                 date: response.list[8].dt_txt
                             },
-                            day3:  {
-                                temp: Math.floor(response.list[16].main.temp - 273.15),
-                                text: response.list[16].weather[0].description,
+                            day2:  {
+                                temp: Math.floor(response.list[16].main.temp),
+                                text: response.list[16].weather[0].main,
                                 date: response.list[16].dt_txt
                             },
-                            day4:  {
-                                temp: Math.floor(response.list[24].main.temp - 273.15),
-                                text: response.list[24].weather[0].description,
+                            day3:  {
+                                temp: Math.floor(response.list[24].main.temp),
+                                text: response.list[24].weather[0].main,
                                 date: response.list[24].dt_txt
                             },
-                            day5:  {
-                                temp: Math.floor(response.list[32].main.temp - 273.15),
-                                text: response.list[32].weather[0].description,
+                            day4:  {
+                                temp: Math.floor(response.list[32].main.temp),
+                                text: response.list[32].weather[0].main,
                                 date: response.list[32].dt_txt
                             }
                         }

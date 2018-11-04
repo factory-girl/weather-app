@@ -34,25 +34,33 @@ input[type=text]::-webkit-input-placeholder {
   color: white;
 }
 
+ul {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
 li img {
   float: left;
   width: 2em;
   height: 2em;
   margin: 0 2em 0 0;
+  flex-grow: 1;
+
 }
 
 li p {
+  flex-grow: 1;
   font: 200 1em Georgia, Helvetica, serif;
 }
 
 li {
+  flex-grow: 1;
   padding: 10px;
   overflow: auto;
 }
 
 button {
-  width: 10%;
-  height: 2em;
   color: white;
   background-color: #0D38A4;
   border-color: #0D38A4;
@@ -61,6 +69,17 @@ button {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+}
+
+@media screen and (max-width: 812px) {
+  div {
+      margin: 1em;
+      width: 100%;
+  }
+
+  body, html {
+      font-size: 0.7em;
+  }
 }
 
 
