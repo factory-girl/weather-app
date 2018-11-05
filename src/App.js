@@ -45,46 +45,46 @@ class App extends React.Component {
         e.preventDefault();
         const city = e.target.elements.city.value;
         const countryCode = e.target.elements.countryCode.value;
+        const request = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${countryCode}
+        &units=metric&APPID=4e3e0ad761bcd972a15d1e7379347bf1`);
+        const response = await request.json();
 
-        getData(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${countryCode}
-        &units=metric&APPID=4e3e0ad761bcd972a15d1e7379347bf1`)
-            .then(response => {
-                response = JSON.parse(response);
-                    this.setState({
-                        city: response.city.name,
-                        countryCode: response.city.country,
-                        days: {
-                            day0:  {
-                                temp: Math.floor(response.list[0].main.temp),
-                                text: response.list[0].weather[0].main,
-                                date: response.list[0].dt_txt
-                            },
-                            day1:  {
-                                temp: Math.floor(response.list[8].main.temp),
-                                text: response.list[8].weather[0].main,
-                                date: response.list[8].dt_txt
-                            },
-                            day2:  {
-                                temp: Math.floor(response.list[16].main.temp),
-                                text: response.list[16].weather[0].main,
-                                date: response.list[16].dt_txt
-                            },
-                            day3:  {
-                                temp: Math.floor(response.list[24].main.temp),
-                                text: response.list[24].weather[0].main,
-                                date: response.list[24].dt_txt
-                            },
-                            day4:  {
-                                temp: Math.floor(response.list[32].main.temp),
-                                text: response.list[32].weather[0].main,
-                                date: response.list[32].dt_txt
-                            }
-                        }
+        if (response) {
+            this.setState({
+                city: response.city.name,
+                countryCode: response.city.country,
+                days: {
+                    day0:  {
+                        temp: Math.floor(response.list[0].main.temp),
+                        text: response.list[0].weather[0].main,
+                        date: response.list[0].dt_txt
+                    },
+                    day1:  {
+                        temp: Math.floor(response.list[8].main.temp),
+                        text: response.list[8].weather[0].main,
+                        date: response.list[8].dt_txt
+                    },
+                    day2:  {
+                        temp: Math.floor(response.list[16].main.temp),
+                        text: response.list[16].weather[0].main,
+                        date: response.list[16].dt_txt
+                    },
+                    day3:  {
+                        temp: Math.floor(response.list[24].main.temp),
+                        text: response.list[24].weather[0].main,
+                        date: response.list[24].dt_txt
+                    },
+                    day4:  {
+                        temp: Math.floor(response.list[32].main.temp),
+                        text: response.list[32].weather[0].main,
+                        date: response.list[32].dt_txt
+                    }
+                }
 
-                    });
-            }, error => {
-                this.setState({ error: error });
-            })
+            });
+        } else {
+            this.setState({error: 'There was an error fetching the weather data'})
+        }
     };
 
   render() {
@@ -101,28 +101,6 @@ class App extends React.Component {
         </div>
     );
   }
-}
-
-function getData(url) {
-    return new Promise(function(resolve, reject) {
-        const request = new XMLHttpRequest();
-        request.open('GET', url);
-
-        request.onload = function() {
-            if (request.status === 200) {
-                resolve(request.response);
-            }
-            else {
-                reject(Error(request.statusText));
-            }
-        };
-
-        request.onerror = function() {
-            reject(Error("error"));
-        };
-
-        request.send();
-    });
 }
 
 export default App;
